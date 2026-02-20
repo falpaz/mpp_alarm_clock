@@ -9,6 +9,7 @@ void setup() {
   clock_setup();
   lcd_setup();
   buttons_setup();
+  buzzer_setup();
 }
 
 void loop() {
@@ -19,4 +20,5 @@ void loop() {
     clock_get_time();
   }
   buttons_handle_presses();
+  alarm_compare_time();
 }

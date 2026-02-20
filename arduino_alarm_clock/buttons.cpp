@@ -1,7 +1,6 @@
 #include "arduino_alarm_clock.h"
 
-#define INCREMENT_BUTTON 12
-#define MODUS_BUTTON 13
+
 #define COOLDOWN_TIME 300
 void buttons_setup(){
   pinMode(INCREMENT_BUTTON, INPUT);
@@ -22,8 +21,13 @@ void buttons_handle_presses(){
     if (state == CHANGE_MINUTES){
       clock_increment_minutes();
     }
-    if (state == CHANGE_SECONDS){
-      clock_increment_seconds();
+    if (state == ALARM_HOURS){
+      alarm_increment_hours();
     }
+    if (state == ALARM_MINUTES){
+      alarm_increment_minutes();
+    }
+    delay(COOLDOWN_TIME);
   }
+  
 }

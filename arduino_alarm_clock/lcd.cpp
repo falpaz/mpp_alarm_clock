@@ -26,10 +26,19 @@ void lcd_show_time() {
   if (state == DISPLAY_TIME){
   lcd.print("");}
   if (state == CHANGE_HOURS){
-  lcd.print("hours");}  
+  lcd.print("  hours");}  
   if (state == CHANGE_MINUTES){
-  lcd.print("minutes");}
-    if (state == CHANGE_SECONDS){
-  lcd.print("seconds");}
+  lcd.print("  min");}
+  if (state == ALARM_HOURS){
+  lcd.print(" A hours");}
+  if (state == ALARM_MINUTES){
+  lcd.print(" A min");}
+  if (state == ALARM_ENABLED){
+  lcd.print(" Alarm on");}
+  lcd.setCursor(0,1);
+  lcd.print(alarm_time.hours);
+  lcd.print(":");
+  lcd.print(alarm_time.minutes);
+  lcd.print(":0");
 }
 
