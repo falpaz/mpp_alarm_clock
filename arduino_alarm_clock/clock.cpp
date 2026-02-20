@@ -11,6 +11,10 @@
 #define CURRENT_DAY_OF_MONTH 6 
 #define CURRENT_MONTH 11 
 #define CURRENT_YEAR 2023 
+
+#define HOURS_PER_DAY 24
+#define MINUTES_PER_HOUR 60
+#define SECONDS_PER_MINUTE 60
 	 
 virtuabotixRTC RTC(DS1302_CLK_PIN, DS1302_DAT_PIN, DS1302_RST_PIN); 
 
@@ -35,14 +39,6 @@ void clock_get_time(){
 	 
 	 Serial.print("Current Date and time: "); 
 	 
-	 Serial.print(RTC.year); 
-	 Serial.print("/"); 
-	 Serial.print(RTC.month); 
-	 Serial.print("/"); 
-	 Serial.print(RTC.dayofmonth); 
-	 
-	 Serial.print(" "); 
-	 
 	 Serial.print(RTC.hours); 
 	 Serial.print(":"); 
 	 Serial.print(RTC.minutes); 
@@ -51,4 +47,40 @@ void clock_get_time(){
 	 
 	 // New line 
 	 Serial.println(); 
+}
+
+void clock_increment_hours(){
+		 RTC.setDS1302Time( 
+				RTC.seconds, 
+				RTC.minutes, 
+				(RTC.hours + 1)% HOURS_PER_DAY, 
+				CURRENT_DAY_OF_WEEK, 
+				CURRENT_DAY_OF_MONTH, 
+				CURRENT_MONTH, 
+				CURRENT_YEAR 
+			); 
+}
+
+void clock_increment_minutes(){
+		 RTC.setDS1302Time( 
+				RTC.seconds, 
+				(RTC.minutes + 1 ) % MINUTES_PER_HOUR, 
+				RTC.hours, 
+				CURRENT_DAY_OF_WEEK, 
+				CURRENT_DAY_OF_MONTH, 
+				CURRENT_MONTH, 
+				CURRENT_YEAR 
+			); 
+}
+
+void clock_increment_seconds(){
+		 RTC.setDS1302Time( 
+				(RTC.seconds + 1) % SECONDS_PER_MINUTE, 
+				RTC.minutes, 
+				RTC.hours, 
+				CURRENT_DAY_OF_WEEK, 
+				CURRENT_DAY_OF_MONTH, 
+				CURRENT_MONTH, 
+				CURRENT_YEAR 
+			); 
 }

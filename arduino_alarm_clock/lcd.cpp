@@ -23,4 +23,13 @@ void lcd_show_time() {
   lcd.print(RTC.minutes);
   lcd.print(":");
   lcd.print(RTC.seconds);
+  if (state == DISPLAY_TIME){
+  lcd.print("");}
+  if (state == CHANGE_HOURS){
+  lcd.print("hours");}  
+  if (state == CHANGE_MINUTES){
+  lcd.print("minutes");}
+    if (state == CHANGE_SECONDS){
+  lcd.print("seconds");}
 }
+
