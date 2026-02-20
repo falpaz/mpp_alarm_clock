@@ -3,10 +3,11 @@
 
 void setup() {
   clock_setup();
+  lcd_setup();
 
 }
 
 void loop() {
   clock_get_time();
-  delay(1000);
+  lcd_show_time();
 }

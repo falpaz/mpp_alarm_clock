@@ -1,5 +1,4 @@
 #include "arduino_alarm_clock.h"
-#include "virtuabotixRTC.h" 
 
 #define DS1302_CLK_PIN A5 
 #define DS1302_DAT_PIN A4 
