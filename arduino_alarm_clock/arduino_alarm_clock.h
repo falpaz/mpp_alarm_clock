@@ -1,6 +1,6 @@
 #pragma once
 #include "virtuabotixRTC.h"
-
+#include <stdint.h>
 
 enum State {DISPLAY_TIME, CHANGE_HOURS, CHANGE_MINUTES, ALARM_HOURS, ALARM_MINUTES, ALARM_ENABLED, STATE_COUNT};
 extern State state;
@@ -23,8 +23,8 @@ void buttons_handle_presses();
 #define MODUS_BUTTON 13
 
 struct Time {
-  int hours;
-  int minutes;
+  uint8_t hours;
+  uint8_t minutes;
 };
 
 extern Time alarm_time;

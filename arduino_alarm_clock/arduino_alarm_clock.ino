@@ -2,7 +2,7 @@
 
 #define REFRESH_TIME_MILLIS 1000
 
-unsigned long lastUpdate = 0;
+uint32_t lastUpdate = 0;
 
 
 void setup() {

@@ -4,7 +4,7 @@
 #define BUZZ_DURATION 500
 #define BUZZER_FREQUENCY 1000
 
-unsigned long buzzerLastUpdate = 0;
+uint32_t buzzerLastUpdate = 0;
 bool buzzerOn = false;
 
 void buzzer_setup() {
@@ -12,7 +12,7 @@ void buzzer_setup() {
 }
 
 void buzzer_buzz() {
-    if (state != ALARM_ENABLED) return;  // nur piepen wenn Alarm aktiv
+    if (state != ALARM_ENABLED) return;
 
     while(!((digitalRead(INCREMENT_BUTTON))||(digitalRead(MODUS_BUTTON)))){
       tone(BUZZER_PIN, BUZZER_FREQUENCY);

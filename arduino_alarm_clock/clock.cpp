@@ -20,8 +20,6 @@ virtuabotixRTC RTC(DS1302_CLK_PIN, DS1302_DAT_PIN, DS1302_RST_PIN);
 void clock_setup(){ 
 	 Serial.begin(115200); 
 	 
-	 // Once the battery is installed, 
-	 // the module stores the value in memory 
 	 RTC.setDS1302Time( 
 	   CURRENT_SECONDS, 
 	   CURRENT_MINUTES, 
@@ -44,7 +42,6 @@ void clock_get_time(){
 	 Serial.print(":"); 
 	 Serial.print(RTC.seconds); 
 	 
-	 // New line 
 	 Serial.println(); 
 }
 
